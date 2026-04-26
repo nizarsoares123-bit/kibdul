@@ -1,0 +1,85 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Playfair Display", serif;
+  
+  --color-kibdul-primary: #2d1b17; /* Darkest Brown from image */
+  --color-kibdul-secondary: #4a2d1f; /* Medium Dark Brown from image */
+  --color-kibdul-accent: #b47b44; /* Golden Brown from image */
+  --color-kibdul-highlight: #7a2d22; /* Reddish Brown from image */
+  --color-kibdul-sand-light: #fdf5e6; /* Off-white sand for contrast */
+  --color-kibdul-sand-dark: #f5deb3; /* Wheat sand */
+  --color-kibdul-earth: #1c1917;
+}
+
+@layer base {
+  body {
+    @apply bg-kibdul-sand-light text-kibdul-earth antialiased;
+  }
+  
+  h1 {
+    @apply font-display tracking-tighter leading-[0.85] font-bold;
+  }
+
+  h2 {
+    @apply font-display tracking-tight leading-[0.95] font-bold;
+  }
+
+  h3 {
+    @apply font-display tracking-tight leading-[1.1] font-bold;
+  }
+
+  p {
+    @apply leading-relaxed text-kibdul-secondary/80;
+  }
+}
+
+/* Sophisticated desert-inspired gradient background */
+.bg-pattern {
+  background-color: var(--color-kibdul-sand-light);
+  background-image: 
+    radial-gradient(circle at 1px 1px, var(--color-kibdul-accent) 0.4px, transparent 0),
+    radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.3) 0%, transparent 60%),
+    linear-gradient(180deg, 
+      #fdf5e6 0%, 
+      #f5deb3 35%, 
+      #e0c6a8 65%, 
+      #d2b48c 100%
+    );
+  background-size: 40px 40px, 100% 100%, 100% 100%;
+  background-attachment: fixed;
+}
+
+.glass-card {
+  @apply bg-white/60 backdrop-blur-xl border border-kibdul-accent/10 shadow-2xl;
+}
+
+.btn-primary {
+  @apply bg-kibdul-primary text-white px-8 py-4 rounded-full font-bold transition-all hover:scale-105 hover:shadow-[0_10px_20px_-5px_rgba(45,27,23,0.4)] active:scale-95 flex items-center justify-center gap-2;
+}
+
+.btn-secondary {
+  @apply bg-kibdul-highlight text-white px-8 py-4 rounded-full font-bold transition-all hover:scale-105 hover:shadow-[0_10px_20px_-5px_rgba(122,45,34,0.4)] active:scale-95 flex items-center justify-center gap-2;
+}
+
+.desert-gradient {
+  background: radial-gradient(circle at 70% 30%, var(--color-kibdul-sand-light) 0%, var(--color-kibdul-sand-dark) 60%, #e0c6a8 100%);
+}
+
+.dune-shape {
+  clip-path: ellipse(120% 60% at 50% 100%);
+}
+
+.sand-texture {
+  position: relative;
+}
+
+.sand-texture::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("https://www.transparenttextures.com/patterns/sandpaper.png");
+  opacity: 0.03;
+  pointer-events: none;
+}
